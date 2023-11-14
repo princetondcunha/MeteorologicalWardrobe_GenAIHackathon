@@ -3,11 +3,15 @@
 import getweatherdata
 import gptrecommendation
 import imagegeneration
+import processinput
 
 date = "November 17"
 time = "12 AM"
 activity = "Stargazing"
+location = "Halifax"
 
-recommendation = gptrecommendation.getrecommendation(getweatherdata.getweather_next5days(44.65,-63.58),date,time,activity)
+coords = processinput.getcoords(location)
+
+recommendation = gptrecommendation.getrecommendation(getweatherdata.getweather_next5days(coords['lat'],coords['lon']),date,time,activity)
 print("Recommendation: ", recommendation['outfit_recommendation'])
-print("Recommendation Illustration: ", imagegeneration.generateimage(recommendation))
+#print("Recommendation Illustration: ", imagegeneration.generateimage(recommendation))
