@@ -21,16 +21,6 @@ def getlatlon(city, countrycode):
 
     return response.choices[0].message.content
 
-def Generate_image(prompt:str) -> str:
-    response = client.images.generate(
-        model="dall-e-3",
-        prompt=f"""Generating character wearing the clothes and weather in the background based on this: "{prompt}" in family friendly cute pixel art""",
-        size="1024x1024",
-        quality="standard",
-        n=1,
-    )
-    return response.data[0].url
-
 # Streamlit app layout
 def main():
     st.title("City Information App")
