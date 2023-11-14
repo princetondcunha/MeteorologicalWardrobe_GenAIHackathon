@@ -1,9 +1,14 @@
 '''Get Recommendations from GPT'''
 
 import json
+import os
 from openai import OpenAI
+import dotenv
 
-client = OpenAI(api_key="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")
+dotenv.load_dotenv()
+openai_apikey=os.environ.get('OPENAI_APIKEY')
+
+client = OpenAI(api_key=openai_apikey)
 
 def getrecommendation(weather_data,date,time,activity):
     '''Get Recommendations from GPT'''
